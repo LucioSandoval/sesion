@@ -1,0 +1,40 @@
+﻿@model List<User>
+<div class="row">
+    <div class="col-6">
+        <h1>
+            @Context.Session.GetString("Nombre")
+        </h1>
+    </div>
+
+    <div class="col-6">
+        <form action="/cerrarSesion" method="GET">
+            <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Correo Electrónico</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Apellidos</td>
+                <td>@usuario.Edad</td>
+                <td>@usuario.CorreoElectronico</td>
+            </tr>
+        }
+    </tbody>
+</table>
